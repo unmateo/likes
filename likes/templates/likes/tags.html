@@ -1,0 +1,15 @@
+<ul>
+    {% for tag in object_list %}
+        <li>
+            {{tag.title}}
+        <ul>
+            {% for item in tag.items.all %}
+            <li>
+                <a href="{{item.web}}" target="_blank" title="{{item.description}}">{{item.title}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        </li>
+    {% endfor %}
+</ul>

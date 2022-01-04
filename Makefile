@@ -19,7 +19,7 @@ db-reset:
 	rm db.sqlite3
 
 create-super-user:
-	python manage.py createsuperuser --username $(SUPERUSER_USERNAME) --email $(SUPERUSER_EMAIL) 
+	python manage.py createsuperuser
 
 up:
 	python manage.py runserver

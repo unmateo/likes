@@ -24,14 +24,27 @@ class BaseLikeModel(BaseModel):
         return self.title
 
 class Item(BaseLikeModel):
+
+    class Meta:
+        ordering = ["-created_at"]
+
     web = models.URLField()
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag', through='ItemTag')
 
 
 class Tag(BaseLikeModel):
+
     items = models.ManyToManyField(Item, through='ItemTag')
 
 
 class ItemTag(BaseModel):
+
+    class Meta: 
+        constraints = [
+            models.UniqueConstraint(fields=['item', 'tag'], name='unique_item_tag')
+        ]
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.item}|{self.tag}"
