@@ -10,32 +10,25 @@ class BaseModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class BaseLikeModel(BaseModel):
-
-    class Meta:
-        abstract = True
-
-    title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200, blank=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    public = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
-
-class Item(BaseLikeModel):
+class Item(BaseModel):
 
     class Meta:
         ordering = ["-created_at"]
 
-    web = models.URLField()
+    name = models.CharField(max_length=200, unique=True)
+    link = models.URLField()
     tags = models.ManyToManyField('Tag', through='ItemTag')
 
+    def __str__(self):
+        return self.name
 
-class Tag(BaseLikeModel):
+class Tag(BaseModel):
 
+    name = models.CharField(max_length=200, unique=True)
     items = models.ManyToManyField(Item, through='ItemTag')
 
+    def __str__(self):
+        return self.name
 
 class ItemTag(BaseModel):
 

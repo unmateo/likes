@@ -11,15 +11,13 @@ class BaseAdmin(admin.ModelAdmin):
 class ItemTagsInline(admin.TabularInline):
     model = Item.tags.through
 
-
-class BaseLikeAdmin(BaseAdmin):
+class ItemAdmin(BaseAdmin):
     inlines = [ItemTagsInline]
-    list_display = BaseAdmin.list_display  + ["title", "slug"]
+    list_display = BaseAdmin.list_display  + ["name"]
 
-class ItemAdmin(BaseLikeAdmin):
-    pass
-class TagAdmin(BaseLikeAdmin):
-    pass
+class TagAdmin(BaseAdmin):
+    inlines = [ItemTagsInline]
+    list_display = BaseAdmin.list_display  + ["name"]
 
 class ItemTagAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display + ["item", "tag"]
