@@ -1,13 +1,15 @@
 {% extends "likes/base.html" %}
 {% block content %}
 <ul class="tags">
-    {% for tag in object_list %}
+    {% for tag in tags %}
         <li>
             <details open>
                 <summary class="tag"><h2>{{tag.name}}</h2></summary>
                 {% include "likes/components/items.html" with items=tag.items.all only %}
             </details>
         </li>
+        {% empty %}
+        <h2>Sorry! No results were found.</h2>
     {% endfor %}
 </ul>
 {% endblock %}
