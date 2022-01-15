@@ -10,3 +10,15 @@
     width: 100%;
     text-align: center;
 }
+
+.tag:hover {
+    cursor: pointer;
+}
+
+details > summary {
+    list-style: none;
+}
+
+details > summary::-webkit-details-marker {
+    display: none;
+}

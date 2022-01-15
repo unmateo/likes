@@ -3,8 +3,10 @@
 <ul class="tags">
     {% for tag in object_list %}
         <li>
-            <h1 class="tag">{{tag.name}}</h1>
-            {% include "likes/components/items.html" with items=tag.items.all only %}
+            <details open>
+                <summary class="tag"><h2>{{tag.name}}</h2></summary>
+                {% include "likes/components/items.html" with items=tag.items.all only %}
+            </details>
         </li>
     {% endfor %}
 </ul>
