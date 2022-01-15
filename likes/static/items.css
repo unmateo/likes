@@ -1,0 +1,39 @@
+
+.item {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    margin: 5px;
+    width: fit-content;
+    padding: 2px 16px;
+  }
+
+.item a {
+    text-decoration: none;
+    color: black;
+}
+
+.item a:hover {
+    color: chocolate;
+}
+
+.item a:visited {
+    color: darkslateblue;
+}
+
+/* On mouse-over, add a deeper shadow */
+.item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.items {
+    list-style-type: none;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.items > li {
+    display: inline-block;
+}
