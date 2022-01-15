@@ -24,7 +24,7 @@ class Command(BaseCommand):
                         if not line:
                             continue
                         elif line[0] == "#":
-                            tag_names = line.strip().split("#")[1:]
+                            tag_names = line.strip().split("#")[1:] + ["INSTAGRAM"]
                             current_tags = []
                             for tag_name in tag_names:
                                 tag, created = Tag.objects.get_or_create(name=tag_name.upper())
