@@ -13,7 +13,7 @@ class BaseModel(models.Model):
 class Item(BaseModel):
 
     class Meta:
-        ordering = ["-created_at"]
+        ordering = ["name"]
 
     name = models.CharField(max_length=200, unique=True)
     link = models.URLField()
@@ -23,6 +23,9 @@ class Item(BaseModel):
         return self.name
 
 class Tag(BaseModel):
+
+    class Meta:
+        ordering = ["name"]
 
     name = models.CharField(max_length=200, unique=True)
     items = models.ManyToManyField(Item, through='ItemTag')
