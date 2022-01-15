@@ -1,0 +1,7 @@
+<ul class="items">
+    {% for item in items %}
+        <li>
+            {% include "likes/components/item.html" with item=item only %}
+        </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+{% extends "likes/base.html" %}
+{% block content %}
+<ul class="tags">
+    {% for tag in object_list %}
+        <li>
+            <h1 class="tag">{{tag.name}}</h1>
+            {% include "likes/components/items.html" with items=tag.items.all only %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends "likes/base.html" %}
+{% block content %}
+{% include "likes/components/items.html" with items=object_list only %}
+{% endblock %}
