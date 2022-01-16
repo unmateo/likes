@@ -28,7 +28,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'likes.apps.LikesConfig',
-    'django.contrib.admin',
+    'likes.apps.LikesAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

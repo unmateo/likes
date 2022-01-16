@@ -4,6 +4,12 @@ from django.contrib import admin
 from .models import Item, Tag, ItemTag
 
 
+
+class LikesAdminSite(admin.AdminSite):
+    site_header = "Likes Admin"
+    site_title = "Likes"
+
+
 class BaseAdmin(admin.ModelAdmin):
     readonly_fields = ["id", "created_at", "updated_at"]
     list_display = ["id", "created_at", "updated_at"]
@@ -23,6 +29,8 @@ class ItemTagAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display + ["item", "tag"]
 
 
-admin.site.register(Item, ItemAdmin)
-admin.site.register(Tag, TagAdmin)
-admin.site.register(ItemTag, ItemTagAdmin)
+admin_site = LikesAdminSite(name="admin")
+
+admin_site.register(Item, ItemAdmin)
+admin_site.register(Tag, TagAdmin)
+admin_site.register(ItemTag, ItemTagAdmin)
