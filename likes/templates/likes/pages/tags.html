@@ -4,11 +4,13 @@
     {% for tag in tags %}
         <li>
             <details open>
-                <summary class="tag"><h2>{{tag.name}}</h2></summary>
+                <summary class="tag">
+                    <h2>{{tag.name}} [{{tag.items.count}}]</h2>
+                </summary>
                 {% include "likes/components/items.html" with items=tag.items.all only %}
             </details>
         </li>
-        {% empty %}
+    {% empty %}
         <h2>Sorry! No results were found.</h2>
     {% endfor %}
 </ul>

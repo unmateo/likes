@@ -1,7 +1,7 @@
+from django.db.models import Count
 from django.views import generic
 
 from .models import Item, Tag
-
 
 
 class HomeView(generic.TemplateView):
@@ -25,6 +25,7 @@ class SearchView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         query = context['query']
-        tags = Tag.objects.filter(name__icontains=query)
+        q = Tag.objects.annotate(items_count=Count("items"))
+        tags = q.filter(name__icontains=query, items_count__gt=0)
         context['tags'] = tags
         return context

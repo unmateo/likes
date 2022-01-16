@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.tag > h2 {
+    padding: 5px 0;
+}
+
 details > summary {
     list-style: none;
 }
