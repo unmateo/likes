@@ -1,7 +1,18 @@
-@import "topnav.css";
+@import "footer.css";
+@import "home.css";
 @import "items.css";
 @import "tags.css";
+@import "topnav.css";
 
 body {
     font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 50px;
 }
