@@ -1,7 +1,5 @@
-<ul class="items">
+<div class="items">
     {% for item in items %}
-        <li>
-            {% include "likes/components/item.html" with item=item only %}
-        </li>
+        {% include "likes/components/item.html" with item=item only %}
     {% endfor %}
-</ul>
+</div>
