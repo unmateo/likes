@@ -21,7 +21,7 @@ SECRET_KEY = environ['DJANGO_SECRET_KEY']
 
 DEBUG = getenv('DJANGO_DEBUG', False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['unmateo.herokuapp.com']
 
 
 # Application definition
